@@ -28,9 +28,9 @@
 
 2 未完成列表
 
-2.1 ios平台的演示. windows、linux不在本文讨论范围.
+2.1 完成其它平台演示. 如ios平台. windows、linux不在本文讨论范围.
 
-2.2 开源库真正引入,并实际调用演示, 如libevent, libpcap
+2.2 完成开源库真正引入,并实际调用演示, 如libevent, libpcap
 
 2.3 事件的实现. 如c语言库如何向android库发送事件通知.
 
