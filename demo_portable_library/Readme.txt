@@ -3,6 +3,8 @@
 目前是在Windows平台下进行编码、编译及演示。Windows平台编译，三星安卓真机测试通过。
 本文档需要完善，目前只写了粗略概要.
 本文实践过程中,作者参考了一些常用库的使用方法,如BaiduLBS_AndroidSDK_Lib.zip。
+希望本文为读者提供参数，方便用于自己的开发实践中. 本文难免有错误,请联系作者 dungeonsnd at gmail dot com .
+
 
 
 1 目录介绍
