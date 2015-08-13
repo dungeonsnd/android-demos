@@ -19,6 +19,12 @@
 1.4 demo_android_sdk_test 
 一个普通的android application项目. 本项目引入了 demo_android_sdk 生成的jar包和.so动态库. 通过调用jar包的java函数来调用了c语言的函数. 开发者对于底层c语言库不需要了解过多,只需要知道 demo_android_sdk 提供的jar包的接口即可.
 
+1.5 demo_ios_sdk 
+对 demo_my_c_lib 提供的接口用object-c接口来转换,使开发者方便的用于ios项目中. 
+
+1.6 demo_ios_sdk_test 
+一个普通的 ios 项目. 本项目引入了 demo_ios_sdk 生成的动态库. 
+
 
 2 未完成列表
 
