@@ -1,5 +1,5 @@
 
-本项目演示了把libevent移植到android平台的方法.
+本项目演示了把libevent移植到android及ios平台的方法.
 涉及交叉编译、jni等技术.
 其中libevent 在android平台移植完成,在三星真机测试通过,成功在手机上通过libevent的tcp连接到服务端. 
 在ios平台移植待完成.
@@ -7,7 +7,7 @@
 demo_lib_libevent 是 libevent的arm平台移植.
 demo_lib_easynetwork 是 使用libevent封装自己的业务逻辑.
 demo_easynetwork_sdk 是 通过jni把 demo_lib_easynetwork 转换成 java接口.
-demo_easynetwork_sdk_test 是 普通android应用程序,导致了demo_easynetwork_sdk输出的jar包和so库,成功调用到底层c封装的函数.
+demo_easynetwork_sdk_test 是 普通android应用程序,导入了demo_easynetwork_sdk输出的jar包和so库,成功调用到底层c封装的函数.
 
 
 读者可参照另一项目 demo_portable_library.
