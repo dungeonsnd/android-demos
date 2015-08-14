@@ -8,8 +8,8 @@ extern "C" {
 #endif
 
 //// 全局变量
-static JavaVM * _javaVM =NULL;
-static jobject * _javaObj =NULL;
+static JavaVM * g_javaVM =NULL;
+static jobject g_javaObj =NULL;
 static volatile int _isExit =0;
 int _port;
 
@@ -57,7 +57,7 @@ static void * native_thread_proc(void * arg)
 		
 		while(0==_isExit)
 		{
-			en_start(_port, on_eventcb_cli,&user_cb_arg);
+			en_start("192.168.16.254:8018", on_eventcb_cli,&user_cb_arg);
 			usleep(6*1000*1000);
 		}
 	}while(0);

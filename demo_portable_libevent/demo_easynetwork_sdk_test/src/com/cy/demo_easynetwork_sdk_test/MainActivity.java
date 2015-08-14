@@ -1,11 +1,13 @@
 package com.cy.demo_easynetwork_sdk_test;
 
 import com.cy.easynetwork.EasyNetwork;
+import com.cy.easynetwork.EasyNetworkEventInterface;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -54,7 +56,18 @@ public class MainActivity extends ActionBarActivity {
 	 */
 	public static class PlaceholderFragment extends Fragment {
 
+		private String TAG ="MainActivity";
+		private EasyNetworkEvent asyNetworkEvent;
+
+		public class EasyNetworkEvent implements EasyNetworkEventInterface {
+			public void onEvent(int event_type)
+			{
+				Log.d(TAG, "onEvent, event_type="+event_type);
+			}
+		}
+		
 		public PlaceholderFragment() {
+			asyNetworkEvent =new EasyNetworkEvent();
 		}
 
 		@Override
@@ -66,8 +79,8 @@ public class MainActivity extends ActionBarActivity {
 			TextView tv =(TextView)rootView.findViewById(R.id.textview1);
 			if(null!=tv)
 			{
-				easyNetwork =new EasyNetwork();
-				int rsl =easyNetwork.start(8018);
+				easyNetwork =new EasyNetwork(asyNetworkEvent);
+				int rsl =easyNetwork.start("192.168.16.254:8018");
 				tv.setText("result is: "+Integer.valueOf(rsl));
 			}
 			else

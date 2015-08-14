@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <errno.h>
 #include <string.h>
+#include <string>
 
 #include <event2/dns.h>
 #include <event2/listener.h>
@@ -69,8 +70,7 @@ static void eventcb_cli(struct bufferevent *bev, short events, void *cbarg)
 		
 		if(_ctx.on_eventcb_cli_func)
 		{
-			int event_type =123;
-			_ctx.on_eventcb_cli_func(event_type, _ctx.user_cb_arg);
+			_ctx.on_eventcb_cli_func(events, _ctx.user_cb_arg);
 		}
 		
 	}while(0);
@@ -127,11 +127,11 @@ int en_stop()
 	return rt;	
 }
 
-int en_start(int port, pfunc_on_eventcb_cli on_eventcb_cli_func, void * user_cb_arg)
+int en_start(const std::string & ip_port, 
+	pfunc_on_eventcb_cli on_eventcb_cli_func, void * user_cb_arg)
 {
-	log_d(TAG_NETWORK, "Enter en_start, port=%d ", port);
+	log_d(TAG_NETWORK, "Enter en_start, ip_port=%s ", ip_port.c_str());
 
-	const char * ip_port ="192.168.16.254:8018";
 	struct sockaddr saddr;
 	int saddr_len =sizeof(saddr);
 	
@@ -146,7 +146,7 @@ int en_start(int port, pfunc_on_eventcb_cli on_eventcb_cli_func, void * user_cb_
 			break;
 		}
 		
-		if(0!=evutil_parse_sockaddr_port(ip_port, &saddr, &saddr_len))
+		if(0!=evutil_parse_sockaddr_port(ip_port.c_str(), &saddr, &saddr_len))
 		{
 			log_w(TAG_NETWORK, "evutil_parse_sockaddr_port return not 0 ! ");
 			break;

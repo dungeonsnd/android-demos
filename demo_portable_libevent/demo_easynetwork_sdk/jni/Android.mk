@@ -15,7 +15,7 @@ include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE    := easynetwork4j
-LOCAL_SRC_FILES := com_cy_easynetwork_EasyNetwork.c
+LOCAL_SRC_FILES := com_cy_easynetwork_EasyNetwork.cpp
 LOCAL_C_INCLUDES := ../demo_lib_easynetwork/jni/include
 LOCAL_STATIC_LIBRARIES :=libeasynetwork libevent_core
 LOCAL_LDLIBS :=  -L$(SYSROOT)/usr/lib -llog
